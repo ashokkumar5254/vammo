@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Single</title>
+        {% include 'cdnlines.html' %}
+    </head>
+    <style>
+.first{
+    width: 100px;
+    height: 200px;
+}
+    </style>
+    <body>
+       <div class="container mt-5">
+        <div class="row">
+            <div class="offset-md-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                        <img src="{{data1.product_image.url}}" class="first" alt="">
+                        </div>
+                        <div class="col-md-8">
+                        <h1>{{data1.product_name}}</h1><hr>
+                        <strong>{{data1.product_slug}}</strong> <br>
+                        <strong>{{data1.product_price}}</strong> RS
+                        <div class="text-center">
+                        <a href="{% url 'cart_item' data1.id %}" class="btn btn-outline-primary">Addcart</a>
+                        <a href="" class="btn btn-outline-secondary">Buynow</a>
+                    </div>
+                        
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            </div>
+
+        </div>
+
+       </div>
+        
+    </body>
+</html>

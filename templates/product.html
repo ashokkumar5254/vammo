@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Products</title>
+        {% include 'cdnlines.html' %}
+    </head>
+    <style>
+        .a1{
+            width: 200px;
+            height: 250px;
+            margin: 10px;
+        }
+    </style>
+    <body>
+       <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="offset-md-3 col-md-6">
+                <strong class="text-center">Category</strong>
+                        </div>
+                    </div>
+                    {% for i in links %}
+                    <div class="row">
+                       
+                  <a href="{% url 'product' i.id %}"> <b>{{i.category_name}}</b> </a>
+                  
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+            </div>
+            <div class="col-md-8">
+                {{data3}}
+             <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        {% for i in data2 %}
+                        <div class="col-md-4">
+                         <a href="{% url 'single' i.product_name %}"><img src="{{i.product_image.url}}" alt="" class="img-thumbnail a1"></a>
+                         <strong class="ml-3">{{i.product_price}}</strong>
+                         <p>{{i.product_name}}</p>
+                        </div>
+
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+             </div>
+            </div>
+        </div>
+       </div>
+    </body>
+</html>

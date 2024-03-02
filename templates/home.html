@@ -1,0 +1,108 @@
+
+<html>
+    <head>
+        <title>home</title>
+        {% include 'cdnlines.html' %}
+    </head>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-color: aqua;
+        }
+        #parent{
+            position: fixed;
+           width: 100vw; 
+           background-color: blue;
+            
+        }
+     #five{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-weight: bold;
+     }
+     #six{
+        position: absolute;
+        top: 10px;
+        right: 100px;
+        font-weight: bold;
+     }
+     #demo{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 55px;
+        left: 15%;
+       
+     }
+     
+   .carousel-inner img{
+    
+    width: 70vw;
+    height: 300px;
+    border: 2px solid black;
+   
+   }
+   .parent1{
+    position: absolute;
+    top: 400px;
+    left: 20vw;
+   }
+   .image1{
+    width: 200px;
+    height: 200px;
+   }
+       
+    </style>
+    <body>
+        <div class="parent" id="parent">
+       {% include 'navbar.html' %}
+    </div>
+   
+   
+    <div class="carsoul">
+        {% include 'carsoul.html' %}
+
+   
+</div>
+ 
+<div class="parent1">
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                       
+                       
+                            {% for i in data1 %}
+                        <div class="col-md-3">
+                           <a href="{% url 'product' i.id %}"><img src="{{i.category_image.url}}" alt="" class="img-thumbnail image1"></a> 
+                            
+
+                        </div>
+                        {% endfor %}
+                   
+                        
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    </div>
+    
+
+   
+    
+    </body>
+</html>

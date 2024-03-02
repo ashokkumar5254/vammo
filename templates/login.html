@@ -1,0 +1,101 @@
+{% load crispy_forms_tags %} 
+<html>
+    <head>
+       <title>Login</title>
+       {% include 'cdnlines.html' %}
+    </head>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background:hsla(190,50%,10%,0.9);
+           
+        }
+        .parent{
+            box-sizing: border-box;
+            width: 400px;
+            height: 400px;
+            padding: 10px;
+           
+          
+           background-color: hsla(190,60%,60%,0.9);
+            border-radius: 10px;
+        }
+        .header{
+            text-align: center;
+            background:linear-gradient(#aaffdd,rgb(0, 255, 47),rgb(11, 0, 0),hsla(22, 50%, 50%, 0.9));
+           
+            color: transparent;
+            -webkit-background-clip: text;
+
+            margin: 10px;
+        }
+        
+        .form{
+            margin: 15px;
+        }
+        label{
+            margin-left: 5px;
+        }
+        input{
+            padding: 0px;
+            border:1px green solid ;
+            border-radius: 5px;
+            color: rgb(255, 0, 119);
+        }
+        #submit{
+            text-transform: uppercase;
+            width: 30%;
+            padding: 10px;
+            background-color: green;
+            color: white;
+        }
+       #reset{
+        text-transform: uppercase;
+            width: 30%;
+            padding: 10px;
+            background-color: red;
+            color: white;
+       }
+       a{
+        color:blue
+       
+       }
+    </style>
+
+        
+    <body>
+        <div class="parent">
+            <div class="header">
+                <h3>Login</h3>
+
+            </div>
+            <div class="form">
+            
+               <form action="" method="POST">
+                {% csrf_token %}
+                {{form|crispy}}
+                <div class="text-center">
+                <input type="submit" id="submit" value="Submit">
+                <input type="reset" id="reset" value="Cancel">
+            </div>
+               </form>
+
+            </div>
+            <div class="text-center m-4">
+           <a href="{% url 'password_reset' %}">Forget Password</a> <br>
+           
+        </div>
+        <div  class="text-center m-4">
+            <a href="{% url 'password_change' %}">Change Password</a>
+        </div>
+        </div>
+       
+    </body>
+</html>

@@ -1,0 +1,55 @@
+{% load static %}
+<html>
+    <head>
+        <title>Profile</title>
+        {% include 'cdnlines.html' %}
+    </head>
+    <style>
+        *{
+            margin:0px;
+            padding: 0px;
+        }
+        body{
+            background: linear-gradient(red,blue,green,white,hsla(200,50%,50%,0.6));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        a{
+            position: absolute;
+            color: red;
+        }
+    </style>
+    <body>
+       <div class="container">
+
+        <div class="row">
+            <div class="offset-md-3 col-md-6">
+                <div class="card">
+                    <h3 class="text-center mt-2">Profile</h3>
+                    <a href="{% url 'edit_profile' %}">Edit Profile</a>
+                    <hr>
+                   <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                         <img src="{{ashok.image.url}}" alt="" width="200px" height="200px" class="img-thumbnail" >
+                        </div>
+                        <div class="offset-md-2 col-md-5">
+                          <b>Username:</b>{{ashok.user.username}} <br>
+                          <b>Email:</b>{{ashok.user.email}} <br>
+                          <b>Location:</b>{{ashok.location}} <br>
+                          <b>Bio:</b>{{ashok.bio}} <br>
+                        </div>
+
+                    </div>
+
+                   </div>
+
+                </div>
+
+            </div>
+        </div>
+
+       </div>
+    </body>
+</html>

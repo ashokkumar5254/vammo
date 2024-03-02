@@ -1,0 +1,93 @@
+
+<html>
+    <head>
+     <title>Signup</title>
+     {% include 'cdnlines.html' %}
+    </head>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            
+           
+        }
+        body{
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           background-color: hsla(150, 40%, 40%, 0.5);
+        }
+        .header{
+            border: 2px solid #AAFF19;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            text-align: center;
+            font-size: 1;
+            padding: 10px;
+            
+            background:linear-gradient(to left,#AAFF19,#ababab,rgb(202,100,10),hsla(202,10%,10%,0.6),red,orange);
+            color: transparent;
+            -webkit-background-clip: text;
+           
+            
+            
+        }
+        .form{
+            box-sizing: border-box;
+           background: repeating-linear-gradient(hsla(100,50%,50%,0.7),red,rgb(100,100,100),orange);
+           border-radius: 10px;
+           padding: 10px;
+          
+
+        }
+        label{
+            margin: 15px;
+
+        }
+        input{
+            margin: 10px;
+            padding-left: 10px;
+            color: blue;
+        }
+        #submit{
+        text-transform: uppercase;
+        width: 20%;
+        background-color: green;
+        color: black;
+        
+        }
+            
+        #reset{
+            text-transform: uppercase;
+        width: 20%;
+        background-color: red;
+        color: black;
+        }
+           
+           
+   
+
+    </style>
+    <body>
+       <div class="ashok" id="container">
+        <div class="header">
+        <h3>Signup</h3>
+        </div>
+        <div class="form">
+        <form action="" method="POST">
+            {% csrf_token %}
+               {{form.as_p}}
+               <input type="checkbox" id="checkbox" required><small>Accept Terms and Condition</small> <br><br>
+               <div class="text-center">
+               <input type="submit" id="submit" value="Submit" >
+               <input type='reset' value="Cancel" id="reset">
+            </div>
+            </form>
+           
+        
+         </div>
+
+       </div>
+    </body>
+</html>
+<!---webkit-background-clip: text;-->

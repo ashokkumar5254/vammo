@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>Cart Item</title>
+        {% include 'cdnlines.html' %}
+    </head>
+  <style>
+    img{
+        width: 200px;
+        height: 200px;
+    }
+  </style>
+    <body>
+        <div class="container mt-4">
+            {% if data1 %}
+          
+            <div class="row">
+                
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="cart-body">
+                        <div class="row">
+                            {% for i in data1 %}
+                            <div class="col-md-3">
+                                <img src="{{i.cart_product.product_image.url}}" alt="" class="img-thumbnail">
+                            </div>
+                            <div class="col-md-3 mt-5">
+                            <a href="{% url 'increament' i.id %}" class="btn btn-success btn-sm p-2 m-2">+</a>{{i.quantity}}<a href="{% url 'decreament' i.id %}" class="btn btn-danger btn-sm p-2 m-2">-</a>
+                            </div>
+                            <div class="col-md-3 mt-5">   
+                                 <b class="" >Price:<strong>{{ i.cart_price}}</strong></b> 
+                           
+                        </div>
+                            <div class="col-md-3 mt-5">
+                               
+                               <a href="{%url 'checkout_payment' i.id %}" class="btn btn-primary">Place Order</a>
+                        
+                                </div>
+                                {% endfor %}
+                               
+                                
+                        </div>
+                       
+
+                    </div>
+                  </div>
+                </div>
+              
+               
+                <div class="col-md-4">
+                 <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                             <strong>Total</strong><br>
+                            </div>
+                            <div class="col-md-4">
+                                <strong>{{data}}</strong><br>
+                               </div>
+                               <div class="col-md-4">
+                                <a href="" class="btn btn-primary ">Buynow</a>
+                               
+                               </div>
+
+                        </div>
+
+                        </div>
+
+                    </div>
+
+                 </div>
+                </div>
+               
+
+            </div>
+            {% else %}
+            <h1>Cart Is Empty</h1>
+            <a href="{% url 'home' %}" class="btn btn-outline-primary">Home</a>
+            {% endif %}
+          
+        </div>
+    </body>
+</html>

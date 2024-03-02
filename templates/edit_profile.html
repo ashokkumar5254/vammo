@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Edit Profile</title>
+        {% include 'cdnlines.html' %}
+    </head>
+    <style>
+        *{
+            margin: 0px;
+            padding:0px;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: grey;
+        }
+        .parent{
+            box-sizing: border-box;
+           
+            background-color: darkturquoise;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+           margin-left: 40%;
+        }
+        .form{
+            padding: 10px;
+           
+        }
+    </style>
+    <body>
+       <div class="parent">
+        <h3 class="text-center">Edit Profile</h3><hr>
+        <img src="{{user.profile.image.url}}" alt="">
+        <div class="form">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{data2.as_p}}
+            {{data1.as_p }}
+            <div class="text-center">
+            <input type="submit" value="Submit" class="btn btn-outline-primary">
+            <input type="reset" value="Cancel" class="btn btn-outline-danger">
+        </div>
+        </form>
+    </div>
+       </div>
+    </body>
+</html>
